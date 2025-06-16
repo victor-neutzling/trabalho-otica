@@ -17,6 +17,7 @@ public class Main {
 		produtoDao.save(p);
 		
 		//teste teste
+		//teste 2
 		
 		for(Produto p1 : produtoDao.getProdutos()) {
 			System.out.println(p1.getNome());
