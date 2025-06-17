@@ -47,7 +47,7 @@ public class FuncionarioDAO {
 
 	public void update(Funcionario funcionario) {
 		
-		String sql = "UPDATE cliente SET nome = ?, cpf = ?, cargo = ?" + "WHERE FuncionarioID = ?";
+		String sql = "UPDATE funcionario SET nome = ?, cpf = ?, cargo = ?" + "WHERE FuncionarioID = ?";
 		
 		Connection conn = null;
 		PreparedStatement pstm = null;
