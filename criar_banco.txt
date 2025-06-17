@@ -8,4 +8,4 @@ CREATE TABLE produto_pedido (ProdutoPedidoID int AUTO_INCREMENT, ProdutoID int, 
 
 CREATE TABLE funcionario (FuncionarioID int AUTO_INCREMENT primary key, nome varchar (100), cpf varchar(20), cargo varchar (50))
 
-teste
+teste2
