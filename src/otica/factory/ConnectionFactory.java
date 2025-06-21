@@ -11,7 +11,7 @@ public class ConnectionFactory {
 	
 	public static Connection createConnectionToMySQL() throws Exception {
 		
-		Connection connection = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
+		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/otica", "root", "050105");
 		
 		return connection;
 	}
