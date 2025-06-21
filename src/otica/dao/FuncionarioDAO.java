@@ -160,4 +160,9 @@ public class FuncionarioDAO {
 		return funcionarios;
 	}
 
+	public Funcionario getFuncionarioID(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
