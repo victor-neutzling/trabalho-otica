@@ -1,28 +1,53 @@
 package otica.model;
 
 public class Cliente {
-	
-	private int ClienteID;
-	private String Nome;
-	private String Cpf;
-	
-	public int getClienteID() {
-		return ClienteID;
-	}
-	public void setClienteID(int clienteID) {
-		ClienteID = clienteID;
-	}
-	public String getNome() {
-		return Nome;
-	}
-	public void setNome(String nome) {
-		Nome = nome;
-	}
-	public String getCpf() {
-		return Cpf;
-	}
-	public void setCpf(String cpf) {
-		Cpf = cpf;
-	}
+
+    private int clienteID;
+    private String nome;
+    private String cpf;
+    private String telefone;
+    private String email;
+
+    // Getters e Setters
+
+    public int getClienteID() {
+        return clienteID;
+    }
+
+    public void setClienteID(int clienteID) {
+        this.clienteID = clienteID;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 	
 }
