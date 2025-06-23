@@ -156,19 +156,12 @@ public class Menu {
             		
                     System.out.print("Nome do cliente: ");
                     cliente.setNome(scanner.nextLine());
-<<<<<<< Updated upstream
-                    
-                    System.out.print("cpf do cliente ");
-                    cliente.setCpf(scanner.nextLine());
-                    
-=======
                     System.out.print("CPF do cliente: ");
                     cliente.setCpf(scanner.nextLine());
                     System.out.print("Telefone do cliente: ");
                     cliente.setTelefone(scanner.nextLine());
                     System.out.print("Email do cliente: ");
                     cliente.setEmail(scanner.nextLine());
->>>>>>> Stashed changes
                     clienteController.salvarCliente(cliente);
                     
                     System.out.println("Cliente cadastrado com sucesso!");
@@ -179,18 +172,13 @@ public class Menu {
             		
                     System.out.print("Nome do funcionário: ");
                     funcionario.setNome(scanner.nextLine());
-<<<<<<< Updated upstream
-                    
-                    System.out.print("cpf: ");
-                    funcionario.setCpf(scanner.nextLine());
-                    
-                    System.out.print("cargo: ");
-=======
                     System.out.print("Cpf do funcionário: ");
                     funcionario.setCpf(scanner.nextLine());
-                    System.out.print("Cargo: ");
->>>>>>> Stashed changes
+                    System.out.print("Cargo do funcionário: ");
                     funcionario.setCargo(scanner.nextLine());
+                    System.out.print("Salário do funcionário: ");
+                    funcionario.setSalario(scanner.nextDouble());
+                    scanner.nextLine();
                     
                     funcionarioController.salvarFuncionario(funcionario);
                     
