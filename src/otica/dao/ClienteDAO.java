@@ -13,7 +13,7 @@ public class ClienteDAO {
 	
 	public void save(Cliente cliente) {
 		
-		String sql = "INSERT INTO cliente(Nome, Cpf) VALUES (?, ?)";
+		String sql = "INSERT INTO cliente(Nome, Cpf, Telefone, Email) VALUES (?, ?, ?, ?)";
 		
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -25,6 +25,8 @@ public class ClienteDAO {
 			
 			pstm.setString(1, cliente.getNome());
 			pstm.setString(2, cliente.getCpf());
+			pstm.setString(3, cliente.getTelefone());
+			pstm.setString(4, cliente.getEmail());
 			
 			pstm.execute();
 		} catch(Exception e) {
@@ -46,7 +48,7 @@ public class ClienteDAO {
 	
 	public void update(Cliente cliente) {
 		
-		String sql = "UPDATE cliente SET Nome = ?, Cpf = ?" + "WHERE ClienteID = ?";
+		String sql = "UPDATE cliente SET Nome = ?, Cpf = ?, Telefone = ?, Email = ?" + "WHERE ClienteID = ?";
 		
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -58,8 +60,10 @@ public class ClienteDAO {
 			
 			pstm.setString(1, cliente.getNome());
 			pstm.setString(2, cliente.getCpf());
+			pstm.setString(3, cliente.getTelefone());
+			pstm.setString(4, cliente.getEmail());
 			
-			pstm.setInt(3, cliente.getClienteID());
+			pstm.setInt(5, cliente.getClienteID());
 			
 			pstm.execute();
 		}catch (Exception e) {
@@ -132,8 +136,9 @@ public class ClienteDAO {
 				cliente.setClienteID(rset.getInt("ClienteID"));
 				cliente.setNome(rset.getString("Nome"));
 				cliente.setCpf(rset.getString("Cpf"));
+				cliente.setTelefone(rset.getString("Telefone"));
+				cliente.setEmail(rset.getString("Email"));
 	
-				
 				clientes.add(cliente);
 			}
 		}catch (Exception e) {
