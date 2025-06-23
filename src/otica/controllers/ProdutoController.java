@@ -27,4 +27,18 @@ public class ProdutoController {
     public List<Produto> listarProdutos() {
         return produtoDAO.getProdutos();
     }
+    
+    public Produto getProdutoByID(int produtoID) {
+    	List<Produto> produtos = this.listarProdutos();
+    	Produto produtoFinal = new Produto();
+    	
+    	for (Produto produto : produtos) {
+            if (produto.getProdutoID() == produtoID) {
+                produtoFinal = produto;
+                break;  
+            }
+        }
+    	
+    	return produtoFinal;
+    }
 }

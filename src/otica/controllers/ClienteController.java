@@ -31,4 +31,24 @@ public class ClienteController {
     public List<Cliente> listarClientes() {
         return clienteDAO.getClientes();
     }
+    
+    public Cliente getClienteByCPF(String cpf) {
+    	List<Cliente> clientes = this.listarClientes();
+    	Cliente clienteFinal = new Cliente();
+    	
+    	for (Cliente cliente : clientes) {
+            if (cliente.getCpf().equals(cpf)) {
+                clienteFinal = cliente;
+                break; 
+            }
+        }
+    	
+    	return clienteFinal;
+    }
+    
+    public boolean login(String cpf) {
+    	Cliente clienteLogado = this.getClienteByCPF(cpf);
+    	
+    	return clienteLogado.getCpf() != null;
+    }
 }

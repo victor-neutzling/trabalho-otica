@@ -1,9 +1,11 @@
+CREATE DATABASE otica;
+
+use otica;
+
 CREATE TABLE produto (ProdutoID int AUTO_INCREMENT, Nome varchar(255), Descricao varchar(255), Preco decimal(7,2), PRIMARY KEY (ProdutoID));
 
 CREATE TABLE cliente (ClienteID int AUTO_INCREMENT, Nome varchar(255), Cpf varchar(11), PRIMARY KEY(ClienteID));
 
-CREATE TABLE pedido (PedidoID int AUTO_INCREMENT, ClienteID int, ValorTotal decimal(7,2), metodo_pagamento varchar(30), PRIMARY KEY(PedidoID), FOREIGN KEY(ClienteID) REFERENCES cliente(ClienteID));
+CREATE TABLE pedido (PedidoID int AUTO_INCREMENT, ClienteID int, ValorTotal decimal(7,2), metodo_pagamento varchar(30), ProdutoID int, PRIMARY KEY(PedidoID), FOREIGN KEY(ClienteID) REFERENCES cliente(ClienteID), FOREIGN KEY(ProdutoID) REFERENCES produto(ProdutoID));
 
-CREATE TABLE produto_pedido (ProdutoPedidoID int AUTO_INCREMENT, ProdutoID int, PedidoID int, PRIMARY KEY(ProdutoPedidoID), FOREIGN KEY (ProdutoID) REFERENCES produto(ProdutoID), FOREIGN KEY (PedidoID) REFERENCES pedido(PedidoID));
-
-CREATE TABLE funcionario (FuncionarioID int AUTO_INCREMENT primary key, nome varchar (100), cpf varchar(20), cargo varchar (50))
+CREATE TABLE funcionario (FuncionarioID int AUTO_INCREMENT primary key, nome varchar (100), cpf varchar(20), cargo varchar (50));

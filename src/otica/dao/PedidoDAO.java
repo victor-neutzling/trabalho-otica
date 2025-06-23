@@ -13,7 +13,7 @@ public class PedidoDAO {
 	
 	public void save(Pedido pedido) {
 		
-		String sql = "INSERT INTO pedido(ClienteID, ValorTotal, metodo_pagamento) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO pedido(ClienteID, ProdutoID, ValorTotal, metodo_pagamento) VALUES (?, ?, ?, ?)";
 		
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -24,8 +24,9 @@ public class PedidoDAO {
 			pstm = conn.prepareStatement(sql);
 			
 			pstm.setInt(1, pedido.getClienteID());
-			pstm.setDouble(2, pedido.getValorTotal());
-			pstm.setString(3, pedido.getMetodo_pagamento());
+			pstm.setInt(2, pedido.getProdutoID());
+			pstm.setDouble(3, pedido.getValorTotal());
+			pstm.setString(4, pedido.getMetodo_pagamento());
 			
 			pstm.execute();
 		} catch(Exception e) {
@@ -47,7 +48,7 @@ public class PedidoDAO {
 	
 	public void update(Pedido pedido) {
 		
-		String sql = "UPDATE pedido SET ClienteID = ?, ValorTotal = ?, metodo_pagamento = ?" + "WHERE PedidoID = ?";
+		String sql = "UPDATE pedido SET ClienteID = ?, ProdutoID = ?, ValorTotal = ?, metodo_pagamento = ?" + "WHERE PedidoID = ?";
 		
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -58,6 +59,7 @@ public class PedidoDAO {
 			pstm = conn.prepareStatement(sql);
 			
 			pstm.setInt(1, pedido.getClienteID());
+			pstm.setInt(2, pedido.getProdutoID());
 			pstm.setDouble(2, pedido.getValorTotal());
 			pstm.setString(3, pedido.getMetodo_pagamento());
 			
@@ -133,6 +135,7 @@ public class PedidoDAO {
 				
 				pedido.setPedidoID(rset.getInt("PedidoID"));
 				pedido.setClienteID(rset.getInt("ClienteID"));
+				pedido.setClienteID(rset.getInt("ProdutoID"));
 				pedido.setValorTotal(rset.getDouble("ValorTotal"));
 				pedido.setMetodo_pagamento(rset.getString("metodo_pagamento"));
 				
