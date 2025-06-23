@@ -13,7 +13,7 @@ public class FuncionarioDAO {
 
 	public void save(Funcionario funcionario) {
 		
-		String sql = "INSERT INTO funcionario(nome, cpf, cargo) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO funcionario(nome, cpf, cargo, salario) VALUES (?, ?, ?, ?)";
 		
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -26,6 +26,7 @@ public class FuncionarioDAO {
 			pstm.setString(1, funcionario.getNome());
 			pstm.setString(2, funcionario.getCpf());
 			pstm.setString(3, funcionario.getCargo());
+			pstm.setDouble(4, funcionario.getSalario());
 			
 			pstm.execute();
 		} catch(Exception e) {
@@ -47,7 +48,7 @@ public class FuncionarioDAO {
 
 	public void update(Funcionario funcionario) {
 		
-		String sql = "UPDATE funcionario SET nome = ?, cpf = ?, cargo = ?" + "WHERE FuncionarioID = ?";
+		String sql = "UPDATE funcionario SET nome = ?, cpf = ?, cargo = ?, salario = ?" + "WHERE FuncionarioID = ?";
 		
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -60,8 +61,9 @@ public class FuncionarioDAO {
 			pstm.setString(1, funcionario.getNome());
 			pstm.setString(2, funcionario.getCpf());
 			pstm.setString(3, funcionario.getCargo());
+			pstm.setDouble(4, funcionario.getSalario());
 			
-			pstm.setInt(4, funcionario.getFuncionarioID());
+			pstm.setInt(5, funcionario.getFuncionarioID());
 			
 			pstm.execute();
 		}catch (Exception e) {
@@ -135,6 +137,7 @@ public class FuncionarioDAO {
 				funcionario.setNome(rset.getString("nome"));
 				funcionario.setCpf(rset.getString("cpf"));
 				funcionario.setCargo(rset.getString("cargo"));
+				funcionario.setSalario(rset.getDouble("salario"));
 				
 				
 				funcionarios.add(funcionario);
@@ -158,11 +161,6 @@ public class FuncionarioDAO {
 		}
 		
 		return funcionarios;
-	}
-
-	public Funcionario getFuncionarioID(int id) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
