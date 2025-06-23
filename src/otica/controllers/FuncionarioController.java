@@ -12,13 +12,8 @@ public class FuncionarioController {
         funcionarioDAO = new FuncionarioDAO();
     }
 
-    // Método usado para salvar funcionário (equivalente a adicionar)
+    // Método usado para salvar funcionário
     public void salvarFuncionario(Funcionario funcionario) {
-        funcionarioDAO.save(funcionario);
-    }
-
-    // Método alternativo com nome diferente, mas mesma funcionalidade
-    public void adicionarFuncionario(Funcionario funcionario) {
         funcionarioDAO.save(funcionario);
     }
 
@@ -35,5 +30,25 @@ public class FuncionarioController {
     // Listar todos os funcionários
     public List<Funcionario> listarFuncionarios() {
         return funcionarioDAO.getFuncionarios();
+    }
+    
+    public Funcionario getFuncionarioByCPF(String cpf) {
+    	List<Funcionario> funcionarios = this.listarFuncionarios();
+    	Funcionario funcionarioFinal = new Funcionario();
+    	
+    	for (Funcionario funcionario : funcionarios) {
+            if (funcionario.getCpf().equals(cpf)) {
+                funcionarioFinal = funcionario;
+                break; 
+            }
+        }
+    	
+    	return funcionarioFinal;
+    }
+    
+    public boolean login(String cpf) {
+    	Funcionario funcionarioLogado = this.getFuncionarioByCPF(cpf);
+    	
+    	return funcionarioLogado.getCpf() != null;
     }
 }

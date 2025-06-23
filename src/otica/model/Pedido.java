@@ -4,6 +4,7 @@ public class Pedido {
 	
 	private int PedidoID;
 	private int ClienteID;
+	private int ProdutoID;
 	private double ValorTotal;
 	private String metodo_pagamento;
 	
@@ -18,6 +19,12 @@ public class Pedido {
 	}
 	public void setClienteID(int clienteID) {
 		ClienteID = clienteID;
+	}
+	public int getProdutoID() {
+		return ProdutoID;
+	}
+	public void setProdutoID(int produtoID) {
+		ProdutoID = produtoID;
 	}
 	public double getValorTotal() {
 		return ValorTotal;
