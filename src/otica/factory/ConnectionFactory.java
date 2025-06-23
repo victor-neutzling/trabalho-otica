@@ -14,7 +14,7 @@ public class ConnectionFactory {
 	
 	public static Connection createConnectionToMySQL() throws Exception {
 		
-		Connection connection = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD1);
+		Connection connection = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
 		
 		return connection;
 	}
